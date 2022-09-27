@@ -15,9 +15,7 @@ var Person1 = /*#__PURE__*/function () {
 
   _createClass(Person1, [{
     key: "say",
-    value: function say() {
-      console.log(this.name);
-    }
+    value: function say() {}
   }]);
 
   return Person1;
