@@ -1,4 +1,4 @@
 {
     "presets": ["@babel/preset-env"],
-    "plugins": ["./plugins/index.js"]
+    "plugins": ["./plugins/index.js", "@babel/plugin-transform-runtime"]
 }
