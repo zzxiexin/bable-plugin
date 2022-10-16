@@ -1,18 +1,10 @@
 "use strict";
 
-var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
-var _classCallCheck2 = _interopRequireDefault(require("@babel/runtime/helpers/classCallCheck"));
-var _createClass2 = _interopRequireDefault(require("@babel/runtime/helpers/createClass"));
-var Person1 = /*#__PURE__*/function () {
-  function Person1(name) {
-    (0, _classCallCheck2["default"])(this, Person1);
-    this.name = name;
-  }
-  (0, _createClass2["default"])(Person1, [{
-    key: "say",
-    value: function say() {}
-  }]);
-  return Person1;
-}();
-var person = new Person("test");
-person.say();
+var _interopRequireDefault = require("@babel/runtime-corejs3/helpers/interopRequireDefault");
+var _includes = _interopRequireDefault(require("@babel/runtime-corejs3/core-js-stable/instance/includes"));
+var lodash = require('lodash');
+// const uniq = require('lodash/uniq')
+var arr = [1, 2, 3, 4, 4, 5, 3, 2, 1];
+console.warn((0, _includes["default"])(arr).call(arr, 1));
+console.warn(lodash.uniq(arr));
+// console.warn(uniq(arr))

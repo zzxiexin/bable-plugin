@@ -1,20 +1,24 @@
-module.exports = function (babel) {
+const types = require('@babel/types')
+const isIdentifier = (node, config) => {
+  return types.isIdentifier(node, config)
+}
+module.exports = function () {
   return {
     visitor: {
-      ClassDeclaration(path, state) {
-        if (path.node.id.name === "Person") {
-          path.node.id.name = "Person1";
-        }
-        console.log(path.node.id.name);
-      },
-      CallExpression(path, state) {
-        if (
-          path.node.callee &&
-          babel.types.isIdentifier(path.node.callee.object, { name: "console" })
-        ) {
+      // MemberExpression(path, state){
+      //   console.log(path.node.object.name)
+      //   console.log(path.node.property.name)
+      //   if (isIdentifier(path.node.object, {name: 'console'}) && isIdentifier(path.node.property, {name: 'log'})){
+      //     console.log(1)
+      //     path.remove()
+      //   }
+      // }
+      CallExpression(path, state){
+        if (isIdentifier(path.node.callee.object, {name: 'console'}) && isIdentifier(path.node.callee.property, {name: 'log'})){
           path.remove();
+          // path.remove();
         }
       },
-    },
+    }
   };
 };
